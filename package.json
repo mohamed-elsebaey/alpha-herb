@@ -1,0 +1,40 @@
+{
+  "name": "alpha-herb",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cloudinary": "^2.5.1",
+    "dotenv": "^16.4.5",
+    "framer-motion": "^11.11.11 --force",
+    "jose": "^5.9.6",
+    "lucide-react": "^0.456.0",
+    "mysql2": "^3.11.4",
+    "next": "15.0.3",
+    "react": "19.0.0-rc-66855b96-20241106",
+    "react-dom": "19.0.0-rc-66855b96-20241106",
+    "react-outside-click-handler": "^1.3.0 --force",
+    "react-slick": "^0.30.2 --force",
+    "slick-carousel": "^1.8.1 --force",
+    "swiper": "^11.1.14 --force"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/react-outside-click-handler": "^1.3.4",
+    "@types/react-slick": "^0.23.13",
+    "eslint": "^8",
+    "eslint-config-next": "15.0.3",
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5"
+  }
+}
