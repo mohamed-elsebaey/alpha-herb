@@ -10,13 +10,15 @@ import logo from "@/public/logo/logo.svg";
 import Avatar from "./Avatar";
 
 function Header({
-  login,
+  userRole,
   profilePath,
 }: {
-  login: boolean;
+  userRole: string | boolean;
   profilePath: string;
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const login = userRole ? true : false;
 
   const openMenueHandler = () => {
     setIsMenuOpen(() => !isMenuOpen);
@@ -139,6 +141,7 @@ function Header({
                   </Link>
                 ) : (
                   <Avatar
+                    userRole={userRole}
                     onClick={closeMenueHandler}
                     profilePath={profilePath}
                   />

@@ -40,6 +40,8 @@ export default async function RootLayout({
     user = await getUserDataFromDB(userId);
   }
 
+  const userRole = user?.role || false 
+  
   const profilePath =
     user?.profilePath ||
     "https://res.cloudinary.com/dyryptpqq/image/upload/v1729810401/AlphaHerbs-Images/usersProfileImages/alpha-herbs.png";
@@ -47,7 +49,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${open_Sans.className} mx-auto max-w-[1800px]`}>
-        <Header login={userId} profilePath={profilePath} />
+        <Header userRole={userRole} profilePath={profilePath} />
 
         {/* Template used to add framer motion to every child */}
         <Template>{children}</Template>

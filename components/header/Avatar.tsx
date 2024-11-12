@@ -1,16 +1,16 @@
-import Image from "next/image";
 import { useState } from "react";
 
 import OutsideClickHandler from "react-outside-click-handler";
 
-import profile from "@/public/profile-pictures/profile.png";
 import Link from "next/link";
 import { logOutAction } from "@/actions/logOutAction";
 
 const Avatar = ({
+  userRole,
   onClick,
   profilePath,
 }: {
+  userRole: string | boolean;
   onClick: any;
   profilePath: string;
 }) => {
@@ -56,8 +56,37 @@ const Avatar = ({
           {isOpen && (
             <div
               className="absolute right-0 top-12 z-10 w-48 bg-white shadow-md rounded-md py-2"
-                onClick={handleClickOutside}
+              onClick={handleClickOutside}
             >
+              {/* ADMIN START */}
+              {userRole && userRole != "USER" && (
+                <Link
+                  href="/admin"
+                  className="block px-4 py-2 hover:bg-primary2 hover:text-primary"
+                  onClick={handleClickOutside}
+                >
+                  <span className="flex items-center gap-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-lock-keyhole"
+                    >
+                      <circle cx="12" cy="16" r="1" />
+                      <rect x="3" y="10" width="18" height="12" rx="2" />
+                      <path d="M7 10V7a5 5 0 0 1 10 0v3" />
+                    </svg>
+                    Admin
+                  </span>
+                </Link>
+              )}
+              {/* ADMIN END */}
               <Link
                 href="/profile"
                 className="block px-4 py-2 hover:bg-gray-100 hover:text-primary"
@@ -116,7 +145,7 @@ const Avatar = ({
                 </span>
               </Link>
               <div
-                className="block px-4 py-2 hover:bg-gray-100 hover:text-primary cursor-pointer"
+                className="block px-4 py-2 hover:bg-red-400 hover:text-primary cursor-pointer"
                 onClick={() => {
                   logOutAction();
                 }}
@@ -147,9 +176,39 @@ const Avatar = ({
       </OutsideClickHandler>
 
       <div className="inline-block md:hidden ">
+        {/* ADMIN START */}
+        {userRole && userRole != "USER" && (
+          <Link
+            href="/admin"
+            className=" text-gray-900 rounded  md:hover:bg-transparent md:border-0 hover:text-primary2 md:p-0 "
+            onClick={onClick}
+          >
+            <span className="flex items-center gap-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-lock-keyhole"
+              >
+                <circle cx="12" cy="16" r="1" />
+                <rect x="3" y="10" width="18" height="12" rx="2" />
+                <path d="M7 10V7a5 5 0 0 1 10 0v3" />
+              </svg>
+              Admin
+            </span>
+          </Link>
+        )}
         <Link
           href="/profile"
-          className="text-gray-900 rounded  md:hover:bg-transparent md:border-0 hover:text-teal-700 md:p-0 "
+          className={`${
+            userRole != "USER" && "py-2 px-3"
+          } text-gray-900 rounded  md:hover:bg-transparent md:border-0 hover:text-teal-700 md:p-0 `}
           onClick={onClick}
         >
           <span className="flex items-center gap-2">
@@ -205,7 +264,7 @@ const Avatar = ({
           </span>
         </Link>
         <div
-          className="text-gray-900 rounded  md:hover:bg-transparent md:border-0 hover:text-teal-700 cursor-pointer"
+          className="text-gray-900 rounded  md:hover:bg-transparent md:border-0 hover:text-red-500 cursor-pointer"
           onClick={() => {
             onClick();
             logOutAction();
