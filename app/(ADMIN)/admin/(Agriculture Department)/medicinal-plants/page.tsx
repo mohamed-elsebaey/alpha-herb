@@ -8,7 +8,7 @@ import { getUserDataFromDB } from "@/db/db";
 import MedicinalPlants from "@/components/(ADMIN)/(Agriculture Department)/MedicinalPlants";
 
 export const metadata: Metadata = {
-  title: "إدارة الزراعة والمعاملات",
+  title: "قسم النباتات الطبية والعطرية",
 };
 
 async function page() {

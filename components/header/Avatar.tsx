@@ -207,7 +207,7 @@ const Avatar = ({
         <Link
           href="/profile"
           className={`${
-            userRole != "USER" && "py-2 px-3"
+            userRole != "USER" ? "py-2 px-3" : ""
           } text-gray-900 rounded  md:hover:bg-transparent md:border-0 hover:text-teal-700 md:p-0 `}
           onClick={onClick}
         >

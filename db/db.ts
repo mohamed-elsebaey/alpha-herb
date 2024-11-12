@@ -105,13 +105,16 @@ export async function userDataAuthentication(email: string, password: string) {
 // ****************************************  Get User Data ****************************************
 
 export async function getUserDataFromDB(id: number) {
-  const existingUser = await executeQuery(
-    "SELECT * FROM users WHERE id = ?",
-    [id]
-  );
+  const existingUser = await executeQuery("SELECT * FROM users WHERE id = ?", [
+    id,
+  ]);
 
   if (existingUser.length == 0) {
-    return { errors: { id: "* Invalid 'id' in function (getUserDataFromDB) in db file " } };
+    return {
+      errors: {
+        id: "* Invalid 'id' in function (getUserDataFromDB) in db file ",
+      },
+    };
   }
 
   const user = existingUser[0];
@@ -209,4 +212,3 @@ export async function addUserCommentToArticleByUserIdArticleId(
 }
 
 // ****************************************  ***** ***** ****************************************
-

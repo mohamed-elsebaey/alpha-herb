@@ -1,9 +1,17 @@
-import React from 'react'
+import Sectors from "@/components/(ADMIN)/sectors/Sectors";
+import { Metadata } from "next";
+import React from "react";
+
+export const metadata: Metadata = {
+  title: "إدارة الزراعة والمعاملات",
+};
 
 function page() {
   return (
-    <div>page</div>
-  )
+    <>
+      <Sectors />
+    </>
+  );
 }
 
-export default page
+export default page;
