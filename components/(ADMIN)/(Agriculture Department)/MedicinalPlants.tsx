@@ -5,65 +5,34 @@ function MedicinalPlants() {
     <div className="container mt-[120px] mb-[90px] ">
       <form className="w-[95%] md:w-[80%] mx-auto" dir="rtl">
         <div className="grid gap-6 mb-6 md:grid-cols-2 lg:grid-cols-3">
-          <div>
-            <label
-              htmlFor="crop_type"
-              className=" mb-2 text-sm font-bold text-primary"
-            >
-              نوع المحصول
-            </label>
-            <input
-              type="text"
-              id="crop_type"
-              className="bg-gray-50 border border-gray-300 text-primary text-sm rounded-lg focus:ring-primary/50 focus:border-primary/50  w-full p-2.5 "
-              placeholder="أكتب نوع المحصول"
-              required
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="planting_date"
-              className=" mb-2 text-sm font-bold text-primary"
-            >
-              تاريخ الزراعة
-            </label>
-            <input
-              type="date"
-              id="planting_date"
-              className="bg-gray-50 border border-gray-300 text-primary2 text-sm rounded-lg focus:ring-primary/50 focus:border-primary/50  w-full p-2.5 "
-              required
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="plant_age"
-              className=" mb-2 text-sm font-bold text-primary"
-            >
-              عمر النبات
-            </label>
-            <input
-              type="number"
-              id="plant_age"
-              className="bg-gray-50 border border-gray-300 text-primary text-sm rounded-lg focus:ring-primary/50 focus:border-primary/50  w-full p-2.5 "
-              placeholder="عمر النبات بالأيام"
-              required
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="watering_speed"
-              className=" mb-2 text-sm font-bold text-primary"
-            >
-              سرعة الري
-            </label>
-            <input
-              type="text"
-              id="watering_speed"
-              className="bg-gray-50 border border-gray-300 text-primary text-sm rounded-lg focus:ring-primary/50 focus:border-primary/50  w-full p-2.5 "
-              placeholder="سرعة الري"
-              required
-            />
-          </div>
+          <InputFild
+            label="نوع المحصول"
+            name="crop_type"
+            type="text"
+            required
+            placeholder="نوع المحصول"
+          />
+          <InputFild
+            label="تاريخ الزراعة"
+            name="planting_date"
+            type="date"
+            required
+            placeholder="تاريخ الزراعة"
+          />
+          <InputFild
+            label="عمر النبات"
+            name="plant_age"
+            type="number"
+            required
+            placeholder="عمر النبات بالأيام"
+          />
+          <InputFild
+            label="سرعة الري"
+            name="watering_speed"
+            type="number"
+            required
+            placeholder="سرعة الري "
+          />
           <div>
             <label
               htmlFor="watering_hours"
@@ -254,7 +223,7 @@ const InputFild = ({
   name: string;
   type: string;
   placeholder: string;
-  required: boolean;
+  required?: boolean;
 }) => {
   return (
     <div>
@@ -263,8 +232,9 @@ const InputFild = ({
       </label>
       <input
         id={name}
+        name={name}
         type={type}
-        className="bg-gray-50 border border-gray-300 text-primary text-sm rounded-lg focus:ring-primary/50 focus:border-primary/50  w-full p-2.5 "
+        className="mt-2 bg-gray-50 border border-gray-300 text-primary text-sm rounded-lg focus:ring-primary/50 focus:border-primary/50  w-full p-2.5 focus:outline-none focus:ring-1"
         placeholder={placeholder}
         required={required}
       />

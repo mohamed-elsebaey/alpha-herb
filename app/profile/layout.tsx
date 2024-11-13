@@ -21,7 +21,7 @@ export default async function Layout({
   children: React.ReactNode;
 }>) {
   if (! await getSession()) {
-    redirect("/");
+    redirect("/sign-in?profile-layout");
   }
   return <>{children}</>;
 }

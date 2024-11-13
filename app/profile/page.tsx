@@ -19,10 +19,9 @@ async function page() {
   if (userId) {
     user = await getUserDataFromDB(userId);
   }else{
-    redirect("/");
-
+    redirect("/sign-in?profile");
   }
-   
+
   return (
     <>
       <Profile userData={user}/>

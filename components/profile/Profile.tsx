@@ -22,7 +22,7 @@ function SubmitButton() {
 function Profile({ userData }: { userData: any }) {
   const [formState, formAction] = useActionState(profileEditActions, {});
 
-  const names = userData.name.split(" ");
+  const names = (userData.name || "").split(" ");
   let first_name = names[0] || "";
   let last_name = names.slice(1).join(" ") || "";
 
