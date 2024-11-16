@@ -42,7 +42,7 @@ import cumin1 from "@/public/images/products-images/CUMIN/1.png";
 interface Product {
   id: number;
   name: string;
-  category: "DriedLeaves" | "Flowers" | "Seeds";
+  category: "dried-leaves" | "flowers" | "seeds";
   imageUrl: string;
 }
 
@@ -50,172 +50,172 @@ export const products: Product[] = [
   {
     id: 1,
     name: "basil",
-    category: "DriedLeaves",
+    category: "dried-leaves",
     imageUrl: basil1.src,
   },
   {
     id: 2,
     name: "basil",
-    category: "DriedLeaves",
+    category: "dried-leaves",
     imageUrl: basil2.src,
   },
   {
     id: 3,
     name: "basil",
-    category: "DriedLeaves",
+    category: "dried-leaves",
     imageUrl: basil3.src,
   },
   {
     id: 4,
     name: "basil",
-    category: "DriedLeaves",
+    category: "dried-leaves",
     imageUrl: basil4.src,
   },
   {
     id: 5,
     name: "basil",
-    category: "DriedLeaves",
+    category: "dried-leaves",
     imageUrl: basil5.src,
   },
   {
     id: 6,
     name: "basil",
-    category: "DriedLeaves",
+    category: "dried-leaves",
     imageUrl: basil6.src,
   },
   {
     id: 7,
     name: "basil",
-    category: "DriedLeaves",
+    category: "dried-leaves",
     imageUrl: basil7.src,
   },
   // -------------------------------------------------
   {
     id: 8,
     name: "mint",
-    category: "DriedLeaves",
+    category: "dried-leaves",
     imageUrl: mint1.src,
   },
   {
     id: 9,
     name: "mint",
-    category: "DriedLeaves",
+    category: "dried-leaves",
     imageUrl: mint2.src,
   },
   {
     id: 10,
     name: "mint",
-    category: "DriedLeaves",
+    category: "dried-leaves",
     imageUrl: mint3.src,
   },
   {
     id: 11,
     name: "mint",
-    category: "DriedLeaves",
+    category: "dried-leaves",
     imageUrl: mint4.src,
   },
   {
     id: 12,
     name: "mint",
-    category: "DriedLeaves",
+    category: "dried-leaves",
     imageUrl: mint5.src,
   },
   {
     id: 13,
     name: "mint",
-    category: "DriedLeaves",
+    category: "dried-leaves",
     imageUrl: mint6.src,
   },
   {
     id: 14,
     name: "mint",
-    category: "DriedLeaves",
+    category: "dried-leaves",
     imageUrl: mint7.src,
   },
   {
     id: 15,
     name: "mint",
-    category: "DriedLeaves",
+    category: "dried-leaves",
     imageUrl: mint8.src,
   },
   {
     id: 16,
     name: "mint",
-    category: "DriedLeaves",
+    category: "dried-leaves",
     imageUrl: mint9.src,
   },
   {
     id: 17,
     name: "mint",
-    category: "DriedLeaves",
+    category: "dried-leaves",
     imageUrl: mint10.src,
   },
   {
     id: 18,
     name: "mint",
-    category: "DriedLeaves",
+    category: "dried-leaves",
     imageUrl: mint11.src,
   },
   {
     id: 19,
     name: "mint",
-    category: "DriedLeaves",
+    category: "dried-leaves",
     imageUrl: mint12.src,
   },
   {
     id: 20,
     name: "mint",
-    category: "DriedLeaves",
+    category: "dried-leaves",
     imageUrl: mint13.src,
   },
   {
     id: 21,
     name: "mint",
-    category: "DriedLeaves",
+    category: "dried-leaves",
     imageUrl: mint14.src,
   },
   // -------------------------------------------------
   {
     id: 22,
     name: "dill",
-    category: "DriedLeaves",
+    category: "dried-leaves",
     imageUrl: dill1.src,
   },
   {
     id: 23,
     name: "dill",
-    category: "DriedLeaves",
+    category: "dried-leaves",
     imageUrl: dill2.src,
   },
   {
     id: 24,
     name: "dill",
-    category: "DriedLeaves",
+    category: "dried-leaves",
     imageUrl: dill3.src,
   },
   {
     id: 25,
     name: "dill",
-    category: "DriedLeaves",
+    category: "dried-leaves",
     imageUrl: dill4.src,
   },
   {
     id: 26,
     name: "dill",
-    category: "DriedLeaves",
+    category: "dried-leaves",
     imageUrl: dill5.src,
   },
   // -------------------------------------------------
   {
     id: 27,
     name: "coriander",
-    category: "DriedLeaves",
+    category: "dried-leaves",
     imageUrl: coriander1.src,
   },
   {
     id: 28,
     name: "coriander",
-    category: "DriedLeaves",
+    category: "dried-leaves",
     imageUrl: coriander2.src,
   },
 
@@ -223,33 +223,33 @@ export const products: Product[] = [
   {
     id: 29,
     name: "marjoram",
-    category: "DriedLeaves",
+    category: "dried-leaves",
     imageUrl: marjoram1.src,
   },
   // -------------------------------------------------
   {
     id: 30,
     name: "parsley",
-    category: "DriedLeaves",
+    category: "dried-leaves",
     imageUrl: parsley1.src,
   },
   // -------------------------------------------------
   {
     id: 31,
     name: "chamomile",
-    category: "Flowers",
+    category: "flowers",
     imageUrl: chamomile1.src,
   },
   {
     id: 32,
     name: "chamomile",
-    category: "Flowers",
+    category: "flowers",
     imageUrl: chamomile2.src,
   },
   {
     id: 33,
     name: "cumin",
-    category: "Seeds",
+    category: "seeds",
     imageUrl: cumin1.src,
   },
 ];
