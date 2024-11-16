@@ -7,7 +7,6 @@ import { getUserDataFromDB } from "@/db/db";
 
 export const metadata: Metadata = {
   title: "Profile",
-  description: "alpha herb ....... ",
 };
 
 async function page() {
