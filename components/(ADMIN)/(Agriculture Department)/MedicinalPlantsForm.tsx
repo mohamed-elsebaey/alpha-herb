@@ -1,6 +1,7 @@
 'use client'
 import { medicinalPlantsAction } from "@/actions/Admin/medicinalPlantsAction";
 import InputFelid from "@/ui/InputFelid";
+import SubmitButton from "@/ui/SubmitButton";
 import React, { useActionState } from "react";
 
 function MedicinalPlantsForm() {
@@ -42,6 +43,7 @@ function MedicinalPlantsForm() {
           type="date"
           required
           placeholder="تاريخ الزراعة"
+          max={new Date().toISOString().split('T')[0]} 
         />
         <InputFelid
           label="عمر النبات"
@@ -135,13 +137,8 @@ function MedicinalPlantsForm() {
         />
       </div>
 
-      <div className="my-12 text-center">
-        <button
-          type="submit"
-          className="text-white bg-primary hover:bg-primary/80 focus:ring-4 focus:outline-none focus:ring-primary font-bold rounded-lg text-sm px-28 py-4 text-center"
-        >
-          إرسال
-        </button>
+      <div className="my-12 text-center w-[30%] mx-auto">
+        <SubmitButton label="ارسال" />
       </div>
     </form>
   );

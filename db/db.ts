@@ -245,7 +245,11 @@ export async function insertMedicinalPlantsActionToPlantsTable(data: any) {
 
 export async function selectDataFromMedicinalPlantsTable(id?: number) {
   const MedicinalPlantsTable: any = await executeQuery(
-    "SELECT * FROM medicinal_plants"
+    `SELECT * FROM medicinal_plants 
+     ${id
+       ? `WHERE engineer_id = ${id} AND CAST(created_at AS DATE) = CAST(CURRENT_TIMESTAMP AS DATE)`
+       : ""
+     }`
   );
   return MedicinalPlantsTable;
 }

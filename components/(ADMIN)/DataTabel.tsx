@@ -1,8 +1,16 @@
 import { selectDataFromMedicinalPlantsTable } from "@/db/db";
+import { getSession } from "@/lib/lib";
 import React from "react";
 
 async function DataTabel(data: any) {
-  const prevData = (await selectDataFromMedicinalPlantsTable()) || [""];
+  const sessionData = await getSession();
+  const userId = sessionData?.user?.id;
+
+  let prevData: any;
+  if (userId) {
+    prevData = (await selectDataFromMedicinalPlantsTable(userId)) || [""];
+  }
+
 
   const colNames = [
     "رقم المحور",
@@ -30,9 +38,9 @@ async function DataTabel(data: any) {
     day: "numeric",
     numberingSystem: "latn",
   };
-  
+
   if(!prevData.length){
-    return <div>لا يوجد بيانات اليوم</div>
+    return <div>لا يوجد بيانات اليوم</div>;
   }
 
 
