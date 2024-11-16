@@ -2,15 +2,21 @@ import { selectDataFromMedicinalPlantsTable } from "@/db/db";
 import { getSession } from "@/lib/lib";
 import React from "react";
 
-async function DataTabel(data: any) {
+const roles = ["CEO", "DEV"];
+
+async function DataTabel({ role }: { role?: string }) {
+  role = role || "";
   const sessionData = await getSession();
   const userId = sessionData?.user?.id;
 
   let prevData: any;
   if (userId) {
-    prevData = (await selectDataFromMedicinalPlantsTable(userId)) || [""];
+    if (roles.includes(role)) {
+      prevData = (await selectDataFromMedicinalPlantsTable()) || [""];
+    } else {
+      prevData = (await selectDataFromMedicinalPlantsTable(userId)) || [""];
+    }
   }
-
 
   const colNames = [
     "رقم المحور",
@@ -39,10 +45,9 @@ async function DataTabel(data: any) {
     numberingSystem: "latn",
   };
 
-  if(!prevData.length){
+  if (!prevData.length) {
     return <div>لا يوجد بيانات اليوم</div>;
   }
-
 
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">

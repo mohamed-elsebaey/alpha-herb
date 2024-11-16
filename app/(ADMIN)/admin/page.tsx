@@ -1,15 +1,25 @@
 import Sectors from "@/components/(ADMIN)/sectors/Sectors";
+import { getUserDataFromDB } from "@/db/db";
+import { getSession } from "@/lib/lib";
 import { Metadata } from "next";
+import { redirect } from "next/navigation";
 import React from "react";
 
 export const metadata: Metadata = {
   title: "إدارة الزراعة والمعاملات",
 };
 
-function page() {
+async function page() {
+  const sessionData = await getSession();
+  const userId = sessionData?.user?.id;
+  let user: any;
+  userId ? (user = await getUserDataFromDB(userId)) : redirect("/");
+  const userRole = user?.role;
+
+  userRole == "USER" ? redirect("/") : "";
   return (
     <>
-      <Sectors />
+      <Sectors  userRole={userRole }/>
     </>
   );
 }
