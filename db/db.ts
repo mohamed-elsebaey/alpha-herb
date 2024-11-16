@@ -38,6 +38,10 @@ function executeQuery<T>(query: string, values?: any[]): Promise<T[]> {
   });
 }
 
+// executeQuery(
+//   "CREATE TABLE medicinal_plants ( id INT PRIMARY KEY AUTO_INCREMENT,axis_number INT,crop_type VARCHAR(50),planting_date DATETIME,plant_age INT,watering_speed VARCHAR(50),watering_hours INT,fertilization VARCHAR(50),generator_hours INT,failures_maintenance TEXT,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,engineer_id INT,driver_name VARCHAR(50),equipment_name VARCHAR(50),equipment_working_hours INT,contractor VARCHAR(50),num_workers INT,workers_working_hours INT,FOREIGN KEY (engineer_id) REFERENCES users(id));"
+// );
+
 // ****************************************  Sign Up ****************************************
 
 export async function addNewUser(
@@ -211,4 +215,37 @@ export async function addUserCommentToArticleByUserIdArticleId(
   );
 }
 
-// ****************************************  ***** ***** ****************************************
+// ****************************************  *****  ***** ****************************************
+// ****************************************  * ADMIN DB * ****************************************
+// ****************************************  *****  ***** ****************************************
+
+export async function insertMedicinalPlantsActionToPlantsTable(data: any) {
+  const result: any = await executeQuery(
+    "INSERT INTO medicinal_plants (engineer_id, axis_number, crop_type, planting_date, plant_age, watering_speed, watering_hours, fertilization, generator_hours, breakdowns_maintenance, driver_name, equipment_type, equipment_working_hours, contractor, num_workers, workers_working_hours) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+    [
+      data.engineer_id,
+      data.axis_number,
+      data.crop_type,
+      data.planting_date,
+      data.plant_age,
+      data.watering_speed,
+      data.watering_hours,
+      data.fertilization,
+      data.generator_hours,
+      data.breakdowns_maintenance,
+      data.driver_name,
+      data.equipment_type,
+      data.equipment_working_hours,
+      data.contractor,
+      data.num_workers,
+      data.workers_working_hours,
+    ]
+  );
+}
+
+export async function selectDataFromMedicinalPlantsTable(id?: number) {
+  const MedicinalPlantsTable: any = await executeQuery(
+    "SELECT * FROM medicinal_plants"
+  );
+  return MedicinalPlantsTable;
+}
