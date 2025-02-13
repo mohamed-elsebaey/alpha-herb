@@ -1,5 +1,12 @@
 User-Agent: *
 Allow: /
 Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /profile/
+Disallow: /sign-in/
+Disallow: /sign-up/
 
+# Crawl-delay: 10
+Host: https://www.alpha-herbs.com
 Sitemap: https://www.alpha-herbs.com/sitemap.xml

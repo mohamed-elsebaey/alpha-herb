@@ -17,15 +17,22 @@ import { getUserDataFromDB } from "@/db/db";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.alpha-herbs.com/"),
   title: {
-    default: "Alpha Herb",
-    template: `%s | Alpha Herb`,
+    default: "Alpha Herb - Premium Medicinal & Aromatic Herbs Supplier",
+    template: `%s | Alpha Herb - Premium Herbs`,
   },
-  description:
-    "Discover the healing power of nature with our wide selection of organic herbs and plants.",
-  // verification: {
-  //   google: "google-site-verification",
-  // },
+  description: "Discover the healing power of nature with Alpha Herb. Leading supplier of bulk medicinal and aromatic herbs for functional food, herbal medicine, and cosmetics industries.",
+  keywords: "medicinal herbs, aromatic herbs, bulk herbs, natural products, herbal medicine, organic herbs",
+  authors: [{ name: "Alpha Herb" }],
+  creator: "Alpha Herb",
+  publisher: "Alpha Herb",
+  formatDetection: {
+    telephone: false,
+  },
+  verification: {
+    google: "google-site-verification-code",
+  },
 };
+
 
 export default async function RootLayout({
   children,

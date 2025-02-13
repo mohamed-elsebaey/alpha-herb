@@ -11,9 +11,11 @@ import Certificates from "@/components/Certificates";
 import ProductsSection from "@/components/products-section/Product";
 
 export const metadata: Metadata = {
-  title: "Alpha Herb",
-  description:
-    "Build your natural products with Alpha Herb. We are a leading supplier of bulk medicinal and aromatic herbs. We provide customized solutions to meet your needs, whether you are a functional food producer, herbal medicine manufacturer, or cosmetics company. Our product quality is our guarantee of your success.",
+  title: "Alpha Herb - Premium Medicinal & Aromatic Herbs Supplier",
+  description: "Build your natural products with Alpha Herb. Leading supplier of bulk medicinal and aromatic herbs, providing customized solutions for functional food producers, herbal medicine manufacturers, and cosmetics companies. Premium quality guaranteed.",
+  alternates: {
+    canonical: "https://www.alpha-herbs.com",
+  },
 };
 
 export default function Home() {
