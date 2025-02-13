@@ -50,7 +50,7 @@ function SignIn() {
     } catch (error) {
       console.error('Google sign in error:', error);
     } finally {
-      setIsGoogleLoading(false);
+      // setIsGoogleLoading(false);
     }
   };
 
