@@ -12,14 +12,16 @@ export const metadata: Metadata = {
 async function page() {
   const sessionData = await getSession();
   const userId = sessionData?.user?.id;
-  let user: any;
-  userId ? (user = await getUserDataFromDB(userId)) : redirect("/");
-  const userRole = user?.role;
+  
+  if (!userId) redirect("/");
+  const user = await getUserDataFromDB(userId) as { role: string };
+  const userRole = user.role;
 
-  userRole == "USER" ? redirect("/") : "";
+  if (userRole === "USER") redirect("/");
+  
   return (
     <>
-      <Sectors  userRole={userRole }/>
+      <Sectors userRole={userRole} />
     </>
   );
 }

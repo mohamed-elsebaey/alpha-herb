@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 
-import Profile from "@/components/profile/Profile";
+// import Profile from "@/components/profile/Profile";
 import { getSession } from "@/lib/lib";
 import { getUserDataFromDB } from "@/db/db";
 
