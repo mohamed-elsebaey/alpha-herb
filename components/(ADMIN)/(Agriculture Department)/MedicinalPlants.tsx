@@ -2,14 +2,14 @@ import MedicinalPlantsForm from "./MedicinalPlantsForm";
 import DataTabel from "../DataTabel";
 
 function MedicinalPlants() {
-  const today = new Date();
-  const options: any = {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    numberingSystem: "latn",
-  };
+  // const today = new Date();
+  // const options: any = {
+  //   weekday: "long",
+  //   year: "numeric",
+  //   month: "long",
+  //   day: "numeric",
+  //   numberingSystem: "latn",
+  // };
 
   // console.log(today.toLocaleDateString("ar-EG", options));
   

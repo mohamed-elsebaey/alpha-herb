@@ -20,11 +20,12 @@ function SubmitButton() {
 }
 
 function Profile({ userData }: { userData: any }) {
-  const [formState, formAction] = useActionState(profileEditActions, {});
+  // const [formState, formAction] = useActionState(profileEditActions, {});
+  const [, formAction] = useActionState(profileEditActions, {});
 
   const names = (userData.name || "").split(" ");
-  let first_name = names[0] || "";
-  let last_name = names.slice(1).join(" ") || "";
+  const first_name = names[0] || "";
+  const last_name = names.slice(1).join(" ") || "";
 
   const [firstName, setFirstName] = useState(first_name);
   const [lastName, setLastName] = useState(last_name);

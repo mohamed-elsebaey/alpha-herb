@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const Video = () => {
   const [videoOpen, setVideoOpen] = useState(false);
-  const videoSrc = "https://www.youtube.com/embed/LXb3EKWsInQ?autoplay=1";
+  // const videoSrc = "https://www.youtube.com/embed/LXb3EKWsInQ?autoplay=1";
 
   const onHandlePlay = () => {
     // setVideoOpen(() => !videoOpen);

@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import { useRef, useState } from "react";
+import Image from "next/image";
 
-export default function ProfileAvatar({ imagePath }: { imagePath: String }) {
+export default function ProfileAvatar({ imagePath }: { imagePath: string }) {
   const [pickedImage, setPickedImage] = useState<any>(imagePath);
-  console.log(imagePath)
+  // console.log(imagePath)
 
   const imageInput = useRef<any>(undefined);
 
@@ -31,12 +31,21 @@ export default function ProfileAvatar({ imagePath }: { imagePath: String }) {
   }
   return (
     <div className="flex flex-col items-center space-y-5 sm:flex-row sm:space-y-0">
-      <img
+      <Image
         className="object-cover w-40 h-40 p-1 rounded-full ring-2 ring-primary/40"
-        src={pickedImage?pickedImage : '/profile-pictures/profile.png'}
-        alt="avatar"
+        src={pickedImage ? pickedImage : "/profile-pictures/profile.png"}
+        alt="User Profile Picture"
+        width={160}
+        height={160}
+        priority
       />
-      <input hidden type="text"  value={pickedImage} name="pickedImage" readOnly/>
+      <input
+        hidden
+        type="text"
+        value={pickedImage}
+        name="pickedImage"
+        readOnly
+      />
       <input
         className="hidden"
         type="file"

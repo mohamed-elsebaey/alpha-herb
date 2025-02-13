@@ -37,13 +37,13 @@ async function DataTabel({ role }: { role?: string }) {
     "عدد العمال",
     "ساعات العمل",
   ];
-  const options: any = {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    numberingSystem: "latn",
-  };
+  // const options: any = {
+  //   weekday: "long",
+  //   year: "numeric",
+  //   month: "long",
+  //   day: "numeric",
+  //   numberingSystem: "latn",
+  // };
 
   if (!prevData.length) {
     return <div>لا يوجد بيانات اليوم</div>;

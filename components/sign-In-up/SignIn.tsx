@@ -33,6 +33,7 @@ function SubmitButton() {
 function SignIn() {
   const [formState, formAction] = useActionState(signInFormAction, initialStat);
   const [formStateType, setFormStateType] = useState<any>({});
+  const [isGoogleLoading, setIsGoogleLoading] = useState(false);
 
   useEffect(() => {
     setFormStateType(formState);
@@ -40,6 +41,17 @@ function SignIn() {
 
   const onChangHandler = () => {
     setFormStateType({});
+  };
+
+  const handleGoogleSignIn = async () => {
+    try {
+      setIsGoogleLoading(true);
+      await signIn('google');
+    } catch (error) {
+      console.error('Google sign in error:', error);
+    } finally {
+      setIsGoogleLoading(false);
+    }
   };
 
   return (
@@ -70,16 +82,21 @@ function SignIn() {
               <div className="mb-6">
                 <button
                   type="button"
-                  onClick={() => signIn('google')}
-                  className="flex w-full items-center justify-center gap-2 rounded-md border border-gray-300 bg-white px-5 py-3 text-base font-medium text-gray-700 transition hover:bg-gray-50"
+                  onClick={handleGoogleSignIn}
+                  disabled={isGoogleLoading}
+                  className="flex w-full items-center justify-center gap-2 rounded-md border border-gray-300 bg-white px-5 py-3 text-base font-medium text-gray-700 transition hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <Image
-                    src="/icons/google.svg"
-                    alt="Google"
-                    width={20}
-                    height={20}
-                  />
-                  Continue with Google
+                  {isGoogleLoading ? (
+                    <div className="h-5 w-5 animate-spin rounded-full border-2 border-gray-300 border-t-primary" />
+                  ) : (
+                    <Image
+                      src="/icons/google.svg"
+                      alt="Google"
+                      width={20}
+                      height={20}
+                    />
+                  )}
+                  {isGoogleLoading ? 'Loading...' : 'Continue with Google'}
                 </button>
               </div>
 

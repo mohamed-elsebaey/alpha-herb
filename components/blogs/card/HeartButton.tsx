@@ -23,7 +23,7 @@ function HeartButton({
       setLikesNumber(liked ? likesNumber - 1 : likesNumber + 1);
       addOrRemoveLikeAction(articleId);
     } else {
-      alert('You need to log in first to be able to like this article.');
+      alert("You need to log in first to be able to like this article.");
     }
   };
   return (

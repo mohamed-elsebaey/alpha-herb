@@ -5,7 +5,8 @@ import SubmitButton from "@/ui/SubmitButton";
 import React, { useActionState } from "react";
 
 function MedicinalPlantsForm() {
-  const [formState, formAction] = useActionState(medicinalPlantsAction, {});
+  // const [formState, formAction] = useActionState(medicinalPlantsAction, {});
+  const [, formAction] = useActionState(medicinalPlantsAction, {});
 
   return (
     <form className="w-[95%] md:w-[80%] mx-auto" action={formAction}>

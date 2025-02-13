@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
+// import { Swiper, SwiperSlide } from "swiper/react";
+// import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
 import BASIL from "@/public/products-section/BASIL.png";
 import CORIANDER from "@/public/products-section/CORIANDER.png";
@@ -100,7 +100,7 @@ const ProductData = [
 
 // --------------------
 
-var settings = {
+const settings = {
   dots: true,
   arrows: false,
   infinite: true,
