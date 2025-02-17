@@ -11,12 +11,12 @@ export const metadata: Metadata = {
 
 async function ProfilePage() {
   const sessionData = await getSession();
-  
+
   if (!sessionData?.user?.id) {
     redirect("/sign-in?profile");
   }
 
-  const user = await getUserDataFromDB(sessionData.user.id);
+  const user = (await getUserDataFromDB(sessionData.user.id)) as User;
 
   if (!user) {
     throw new Error("User data not found");
