@@ -32,7 +32,7 @@ function Hero() {
                 src="https://img1.wsimg.com/isteam/stock/14366/:/rs=w:1920,m"
                 alt="hero"
                 className="max-w-full lg:ml-auto rounded-lg rounded-tl-[100px]"
-                loading="lazy"
+                priority={true}
               />
               <span className="absolute -bottom-8 -left-8 z-[-1]">
                 <svg
