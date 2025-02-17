@@ -68,7 +68,7 @@ export default async function RootLayout({
   const sessionData = await getSession();
   const userId = sessionData?.user?.id;
   const user = userId ? ((await getUserDataFromDB(userId)) as User) : null;
-  const userRole = user?.role || 'USER';
+  const userRole = user?.role || false;
   const profilePath = user?.profilePath || DEFAULT_PROFILE_IMAGE;
 
   return (
