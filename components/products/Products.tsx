@@ -2,7 +2,6 @@ import { products } from "./types";
 import Image from "next/image";
 
 function Products({ selectedCategory }: { selectedCategory: string }) {
-  console.log(selectedCategory)
   const filteredProducts = products.filter((product) => {
     if (selectedCategory === "all") {
       return true;
@@ -26,7 +25,7 @@ function Products({ selectedCategory }: { selectedCategory: string }) {
 
 export default Products;
 
-const ImageCard = ({ src, name }: { src: any; name: any }) => {
+const ImageCard = ({ src, name }: { src: string; name: string }) => {
   return (
     <div>
       <Image
@@ -36,6 +35,10 @@ const ImageCard = ({ src, name }: { src: any; name: any }) => {
         src={src}
         alt={name}
         loading="lazy"
+        title={name}
+        priority={false}
+        quality={75}
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
       />
     </div>
   );

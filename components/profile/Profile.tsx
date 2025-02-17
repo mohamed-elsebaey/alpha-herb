@@ -19,7 +19,7 @@ function SubmitButton() {
   );
 }
 
-function Profile({ userData }: { userData: any }) {
+function Profile({ userData }: { userData: User }) {
   // const [formState, formAction] = useActionState(profileEditActions, {});
   const [, formAction] = useActionState(profileEditActions, {});
 
@@ -29,21 +29,20 @@ function Profile({ userData }: { userData: any }) {
 
   const [firstName, setFirstName] = useState(first_name);
   const [lastName, setLastName] = useState(last_name);
+  const [country, setCountry] = useState(userData.country || "");
+  const [phone, setPhone] = useState(userData.phone || "");
 
-  const [country, setCountry] = useState(userData.country);
-  const [phone, setPhone] = useState(userData.phone);
-
-  const handleFirstNameChange = (event: any) => {
+  const handleFirstNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFirstName(event.target.value.replace(/\s/g, ""));
   };
-  const handleLastNameChange = (event: any) => {
+  const handleLastNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setLastName(event.target.value.replace(/\s/g, ""));
   };
 
-  const handleCountryChange = (event: any) => {
+  const handleCountryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setCountry(event.target.value.replace(/\s/g, ""));
   };
-  const handlePhoneChange = (event: any) => {
+  const handlePhoneChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPhone(event.target.value.replace(/\s/g, ""));
   };
 
@@ -54,7 +53,7 @@ function Profile({ userData }: { userData: any }) {
           className="w-full min-h-screen py-1 md:w-2/3 lg:w-3/4 mx-auto"
           action={formAction}
         >
-          <ProfileAvatar imagePath={userData.profilePath} />
+          <ProfileAvatar imagePath={userData.profilePath || ""} />
 
           <div className="items-center mt-8 sm:mt-14 text-primary">
             <div className="flex flex-col items-center w-full mb-2 space-x-0 space-y-2 sm:flex-row sm:space-x-4 sm:space-y-0 sm:mb-6">

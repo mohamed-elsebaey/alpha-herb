@@ -10,10 +10,25 @@ async function Blogs() {
     blogs = await getAllBlogs();
   } catch (error) {
     console.error(error);
+    return (
+      <div className="text-center py-10">
+        <p className="text-red-500">
+          Sorry, an error occurred while loading blogs
+        </p>
+      </div>
+    );
+  }
+
+  if (!blogs || blogs.length === 0) {
+    return (
+      <div className="text-center py-10">
+        <p className="text-gray-500">No blogs available at the moment</p>
+      </div>
+    );
   }
 
   return (
-    <section className="bg-white pb-10 pt-20 lg:pb-20 lg:pt-[120px]">
+    <section className="bg-gradient-to-b from-white to-gray-50 pb-10 pt-20 lg:pb-20 lg:pt-[120px]">
       <div className="py-4 px-4 md:px-10 max-w-screen-xl mx-auto relative">
         <div className="-mx-4 flex flex-wrap justify-center">
           <div className="w-full px-4">
@@ -35,7 +50,7 @@ async function Blogs() {
 
         <div className=" flex flex-wrap justify-center ">
           {blogs &&
-            blogs.map((blog: any) => (
+            blogs.map((blog) => (
               <div
                 className="mx-4 relative flex flex-col my-6 bg-white shadow-md border border-gray-200 hover:shadow-primary rounded-lg max-w-md" // max-w-sm
                 key={blog.id}

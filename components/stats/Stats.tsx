@@ -9,7 +9,7 @@ function Stats() {
     teamMembers: 1,
   });
 
-  const [isAnimating, setIsAnimating] = useState(true);
+  const [isAnimating, ] = useState(true);
 
   useEffect(() => {
     if (isAnimating) {

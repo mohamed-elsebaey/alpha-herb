@@ -9,12 +9,14 @@ import { signIn } from "next-auth/react";
 import { signInFormAction } from "@/actions/signInAction";
 import { useActionState, useEffect, useState } from "react";
 
-const initialStat = {
-  errors: {
-    email: undefined,
-    password: undefined,
-  },
+type FormStateType = {
+  errors?: {
+    email?: string;
+    password?: string;
+  };
 };
+
+
 
 function SubmitButton() {
   const { pending } = useFormStatus();
@@ -31,8 +33,11 @@ function SubmitButton() {
 }
 
 function SignIn() {
-  const [formState, formAction] = useActionState(signInFormAction, initialStat);
-  const [formStateType, setFormStateType] = useState<any>({});
+  const [formState, formAction] = useActionState<FormStateType, FormData>(
+    signInFormAction,
+    { errors: {} }
+  );
+  const [formStateType, setFormStateType] = useState<FormStateType>({ errors: {} });
   const [isGoogleLoading, setIsGoogleLoading] = useState(false);
 
   useEffect(() => {

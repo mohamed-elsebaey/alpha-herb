@@ -4,26 +4,30 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 
 export default function ProfileAvatar({ imagePath }: { imagePath: string }) {
-  const [pickedImage, setPickedImage] = useState<any>(imagePath);
+  const [pickedImage, setPickedImage] = useState<string>(imagePath);
   // console.log(imagePath)
 
-  const imageInput = useRef<any>(undefined);
+  const imageInput = useRef<HTMLInputElement>(null);
 
   function handlePickClick() {
-    imageInput.current.click();
+    if (imageInput.current) {
+      imageInput.current.click();
+    }
   }
 
-  function handleImageChange(event: any) {
-    const file = event?.target.files[0];
+  function handleImageChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files?.[0];
     if (!file) {
-      setPickedImage(null);
+      setPickedImage("/profile-pictures/profile.png");
       return;
     }
     const fileReader = new FileReader();
     fileReader.readAsDataURL(file);
 
     fileReader.onload = () => {
-      setPickedImage(fileReader.result);
+      if (typeof fileReader.result === 'string') {
+        setPickedImage(fileReader.result);
+      }
     };
   }
   function handleDeleteImageChange() {

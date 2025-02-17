@@ -10,11 +10,12 @@ import logo from "@/public/logo/logo.svg";
 import { signUpFormAction } from "@/actions/signUpAction";
 import { useActionState, useEffect, useState } from "react";
 
-const initialStat = {
-  errors: {
-    email: undefined,
-    password: undefined,
-  },
+type FormStateType = {
+  errors?: {
+    email?: string;
+    password?: string;
+  };
+  message?: string;
 };
 
 function SubmitButton() {
@@ -32,8 +33,13 @@ function SubmitButton() {
 }
 
 function SignUp() {
-  const [formState, formAction] = useActionState(signUpFormAction, initialStat);
-  const [formStateType, setFormStateType] = useState<any>({});
+  const [formState, formAction] = useActionState<FormStateType, FormData>(
+    signUpFormAction,
+    { errors: {} }
+  );
+  const [formStateType, setFormStateType] = useState<FormStateType>({
+    errors: {},
+  });
 
   useEffect(() => {
     setFormStateType(formState);
@@ -55,7 +61,12 @@ function SignUp() {
                   href="/"
                   className="flex flex-col items-center justify-center gap-2 text-primary font-mono"
                 >
-                  <Image src={logo} alt="Alpha Herb" width={35} loading="lazy"/>
+                  <Image
+                    src={logo}
+                    alt="Alpha Herb"
+                    width={35}
+                    loading="lazy"
+                  />
                   <span className="self-center text-2xl font-bold whitespace-nowrap">
                     Alpha Herb
                   </span>

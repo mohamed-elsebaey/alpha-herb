@@ -1,25 +1,26 @@
 "use server";
-import { redirect } from "next/navigation";
 import { uploadImage } from "@/lib/cloudinary";
 import { updateUserProfileData } from "@/db/db";
 import { revalidatePath } from "next/cache";
 
-export async function profileEditActions(prevState: any, formData: FormData) {
-  const first_name: any = formData.get("first_name");
-  const last_name: any = formData.get("last_name");
-  const email: any = formData.get("email");
-  const country: any = formData.get("country");
-  const phone: any = formData.get("phone");
-  const image: any = formData.get("image");
-
-  const pickedImage: any = formData.get("pickedImage");
+export async function profileEditActions(
+  prevState: { message?: string },
+  formData: FormData
+) {
+  const first_name = formData.get("first_name")?.toString() || "";
+  const last_name = formData.get("last_name")?.toString() || "";
+  const email = formData.get("email")?.toString() || "";
+  const country = formData.get("country")?.toString() || "";
+  const phone = formData.get("phone")?.toString() || "";
+  const image = formData.get("image") as File | null;
+  const pickedImage = formData.get("pickedImage")?.toString() || "";
   
   const fullName = `${first_name} ${last_name}`;
 
   // if use use CLOUDINARY
-  let imageUrl: any = pickedImage;
+  let imageUrl: string = pickedImage;
   try {
-    if (image.size != 0) {
+    if (image) {
       imageUrl = await uploadImage(image, email);
     }
   } catch {

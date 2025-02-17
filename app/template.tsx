@@ -6,7 +6,13 @@ export default function Template({ children }: { children: React.ReactNode }) {
     <motion.div
       initial={{ y: 20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ ease: "easeInOut", duration: 0.75 }}
+      exit={{ y: -20, opacity: 0 }}
+      transition={{
+        ease: "easeInOut",
+        duration: 0.5,
+        staggerChildren: 0.1
+      }}
+      className="w-full"
     >
       {children}
     </motion.div>

@@ -4,19 +4,16 @@ import { getArticleLikeStateByUserIdArticleId } from "@/db/db";
 import { getSession } from "@/lib/lib";
 import { revalidatePath } from "next/cache";
 
-export async function addOrRemoveLikeAction(articleId: any) {
+export async function addOrRemoveLikeAction(articleId: number) {
   const sessionData = await getSession();
 
   if (!sessionData) {
     return;
   }
 
-  const userId: any = sessionData.user.id;
+  const userId = sessionData.user.id;
 
-  const likeState = await getArticleLikeStateByUserIdArticleId(
-    userId,
-    articleId
-  );
+  await getArticleLikeStateByUserIdArticleId(userId, articleId);
 
   revalidatePath("/blog");
 }

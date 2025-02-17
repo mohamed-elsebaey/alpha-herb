@@ -11,22 +11,18 @@ export const metadata: Metadata = {
   title: "قسم النباتات الطبية والعطرية",
 };
 
-async function page() {
-  const sessionData = await getSession();
-  const userId = sessionData?.user?.id;
-
-  let user: any;
-  if (userId) {
-    user = await getUserDataFromDB(userId);
-  } else {
+export default async function MedicinalPlantsPage() {
+  const session = await getSession();
+  
+  if (!session?.user?.id) {
     redirect("/");
   }
 
-  return (
-    <>
-      <MedicinalPlants/>
-    </>
-  );
-}
+  const user = await getUserDataFromDB(session.user.id) as User;
+  
+  if (!user) {
+    redirect("/");
+  }
 
-export default page;
+  return <MedicinalPlants />;
+}

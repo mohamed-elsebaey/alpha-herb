@@ -41,7 +41,7 @@ function WeBeganWith() {
 
 export default WeBeganWith;
 
-const WeBeganList = ({ number, label }: { number: number; label: any }) => {
+const WeBeganList = ({ number, label }: { number: number; label: string }) => {
   return (
     <div className="w-full px-4 md:w-1/2 lg:w-1/3">
       <div className="min-h-64 mb-9 rounded-[20px] bg-white p-10 shadow-lg hover:shadow-xl md:px-7 xl:px-10 -2">

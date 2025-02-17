@@ -9,23 +9,20 @@ export const metadata: Metadata = {
   title: "Profile",
 };
 
-async function page() {
-
+async function ProfilePage() {
   const sessionData = await getSession();
-  const userId = sessionData?.user?.id;
-
-  let user : any;
-  if (userId) {
-    user = await getUserDataFromDB(userId);
-  }else{
+  
+  if (!sessionData?.user?.id) {
     redirect("/sign-in?profile");
   }
 
-  return (
-    <>
-      <Profile userData={user}/>
-    </>
-  );
+  const user = await getUserDataFromDB(sessionData.user.id);
+
+  if (!user) {
+    throw new Error("User data not found");
+  }
+
+  return <Profile userData={user} />;
 }
 
-export default page;
+export default ProfilePage;

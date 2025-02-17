@@ -5,9 +5,32 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Have a question or need assistance? At Alpha Herb, we strive to provide the best customer service. Contact us easily through our contact page. We are happy to receive your inquiries and suggestions, and we will get back to you as soon as possible. Discover for yourself why thousands trust our products and services.",
+    "Have a question or need assistance? Contact Alpha Herb for premium herbal products and expert guidance. We're here to help! ",
+  keywords: [
+    // English Keywords
+    "contact Alpha Herb",
+    "herbal products support",
+    "customer service",
+    "natural remedies help",
+    "herb consultation",
+    // Arabic Keywords
+    "تواصل مع الفا هيرب",
+    "دعم المنتجات العشبية",
+    "خدمة العملاء",
+    "استشارات الأعشاب",
+    "منتجات طبيعية",
+  ],
   alternates: {
     canonical: "https://www.alpha-herbs.com/contact",
+  },
+  openGraph: {
+    title: "Contact Us - Alpha Herb ",
+    description: "Contact Alpha Herb for premium herbal products and expert guidance ",
+    url: "https://www.alpha-herbs.com/contact",
+    siteName: "Alpha Herb",
+    locale: "en_US",
+    alternateLocale: ["ar_SA"],
+    type: "website",
   },
 };
 

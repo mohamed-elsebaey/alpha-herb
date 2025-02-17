@@ -4,7 +4,16 @@ import { addUserSessions } from "@/lib/lib";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
-export async function signInFormAction(prevState: any, formData: FormData) {
+type FormStateType = {
+  errors?: {
+    email?: string;
+    password?: string;
+  };
+};
+export async function signInFormAction(
+  state: FormStateType,
+  formData: FormData
+): Promise<FormStateType> {
   const email = formData.get("email")?.toString().trim() || "";
   const password = formData.get("password")?.toString().trim() || "";
 

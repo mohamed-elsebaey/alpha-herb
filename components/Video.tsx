@@ -5,7 +5,7 @@ import Image from "next/image";
 // import { motion } from "framer-motion";
 
 const Video = () => {
-  const [videoOpen, setVideoOpen] = useState(false);
+  const [videoOpen, ] = useState(false);
   // const videoSrc = "https://www.youtube.com/embed/LXb3EKWsInQ?autoplay=1";
 
   const onHandlePlay = () => {

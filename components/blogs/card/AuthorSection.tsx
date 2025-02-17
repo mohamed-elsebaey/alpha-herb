@@ -1,8 +1,8 @@
 import { getAuthorDataById } from "@/db/db";
 import Image from "next/image";
 
-async function AuthorSection({ id }: { id: any }) {
-  const authorData: any = await getAuthorDataById(id);
+async function AuthorSection({ id }: { id: number }) {
+  const authorData = await getAuthorDataById(id);
   // const authorName = authorData[0].name;
   const authorProfilePath = authorData[0].profilePath;
   return (

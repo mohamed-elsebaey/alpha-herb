@@ -1,8 +1,9 @@
 import { grtAllUserCommentsWithTheirNamesAndProfilePicturePathByBlogId } from "@/db/db";
 import CommentForm from "./CommentForm";
 import Image from "next/image";
+import CommentDropDown from "./CommentDropDown";
 
-async function CommentsSection({ articleId }: { articleId: any }) {
+async function CommentsSection({ articleId }: { articleId: number }) {
   const allCommentsData =
     await grtAllUserCommentsWithTheirNamesAndProfilePicturePathByBlogId(
       articleId
@@ -18,7 +19,9 @@ async function CommentsSection({ articleId }: { articleId: any }) {
           </div>
           <CommentForm />
           {/* Users Comments Start */}
-          {allCommentsData.map((userComment: any) => (
+          {allCommentsData
+            .sort((a, b) => b.created_at.getTime() - a.created_at.getTime())
+            .map((userComment) => (
             <div
               className="p-6 mb-3 text-base bg-white border-t "
               key={userComment.id}
@@ -46,42 +49,8 @@ async function CommentsSection({ articleId }: { articleId: any }) {
                     })}
                   </p>
                 </div>
-                {/* <!-- Dropdown menu Start --> */}
-                <button
-                  className="inline-flex items-center p-2 text-sm font-medium text-center text-gray-500 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 "
-                  type="button"
-                >
-                  <svg
-                    className="w-4 h-4"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 16 3"
-                  >
-                    <path d="M2 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm6.041 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM14 0a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z" />
-                  </svg>
-                  <span className="sr-only">Comment settings</span>
-                </button>
-                {/* <div className="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow">
-                <ul className="py-1 text-sm text-gray-700">
-                  <li>
-                    <a href="#" className="block py-2 px-4 hover:bg-gray-100">
-                      Edit
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="block py-2 px-4 hover:bg-gray-100">
-                      Remove
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="block py-2 px-4 hover:bg-gray-100">
-                      Report
-                    </a>
-                  </li>
-                </ul>
-              </div> */}
+                <CommentDropDown />
               </div>
-              {/* <!-- Dropdown menu End --> */}
               <p className="text-gray-500">{userComment.comment}</p>
               <div className="flex items-center mt-4 space-x-4">
                 {/* <button

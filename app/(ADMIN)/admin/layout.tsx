@@ -22,7 +22,7 @@ export default async function Layout({
   const sessionData = await getSession();
   const userId = sessionData?.user?.id;
   
-  const user: any = !userId ? null : await getUserDataFromDB(userId);
+  const user = !userId ? null : (await getUserDataFromDB(userId)) as User;
   
   if (!userId) {
     redirect("/");

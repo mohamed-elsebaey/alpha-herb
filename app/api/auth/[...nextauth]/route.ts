@@ -33,7 +33,8 @@ const authOption: NextAuthOptions = {
       return '/';
     },
     // Handle sign-in process
-    async signIn({ account, profile }) {
+    // async signIn({ account, profile }) {
+    async signIn({ profile }) {
       try {
         // Validate email existence in profile
         if (!profile?.email) {

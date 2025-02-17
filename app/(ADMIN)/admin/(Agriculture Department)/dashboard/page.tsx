@@ -1,4 +1,4 @@
-import DataTabel from "@/components/(ADMIN)/DataTabel";
+import DataTabel from "@/components/(ADMIN)/DataTable";
 import { getUserDataFromDB } from "@/db/db";
 import { getSession } from "@/lib/lib";
 import { redirect } from "next/navigation";

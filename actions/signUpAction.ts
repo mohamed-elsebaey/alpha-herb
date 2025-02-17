@@ -6,7 +6,16 @@ import { addUserSessions } from "@/lib/lib";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
-export async function signUpFormAction(prevState: any, formData: FormData) {
+type FormStateType = {
+  errors?: {
+    email?: string;
+    password?: string;
+  };
+};
+export async function signUpFormAction(
+  state: FormStateType,
+  formData: FormData
+): Promise<FormStateType> {
   const email = formData.get("email")?.toString().trim() || "";
   const password = formData.get("password")?.toString().trim() || "";
 
@@ -32,7 +41,7 @@ export async function signUpFormAction(prevState: any, formData: FormData) {
   const verificationCode = Math.floor(Math.random() * 10000);
   // ********************************************************************
 
-  const newUserData: any = await addNewUser(email, password, verificationCode);
+  const newUserData = await addNewUser(email, password, verificationCode);
 
   if (newUserData.errors) {
     return newUserData;
@@ -63,8 +72,9 @@ export async function signUpFormAction(prevState: any, formData: FormData) {
     `;
   }
 
-  const message = generateVerificationMessage(verificationCode);
-
+  // const message = generateVerificationMessage(verificationCode);
+  generateVerificationMessage(verificationCode);
+  
   //  await sendMail({
   //   to: email,
   //   name: "Alpha-Herbs.com",
@@ -74,6 +84,7 @@ export async function signUpFormAction(prevState: any, formData: FormData) {
   // revalidatePath("/sign-in");
 
   addUserSessions(newUserData);
-  revalidatePath('/')
+  revalidatePath("/");
   redirect("/");
+
 }

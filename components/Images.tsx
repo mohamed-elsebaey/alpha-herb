@@ -14,7 +14,7 @@ function Images() {
                 src="/images/imageGallery/1.jpeg"
                 alt="gallery"
                 className="block h-full w-full rounded-lg object-cover object-center"
-                loading="lazy"
+                priority={true}
               />
             </div>
             <div className="w-1/2 p-1 md:p-2">

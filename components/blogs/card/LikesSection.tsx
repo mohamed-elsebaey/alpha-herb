@@ -5,25 +5,30 @@ import {
 import HeartButton from "./HeartButton";
 import { getSession } from "@/lib/lib";
 
-async function LikesSection({ id }: { id: any }) {
-  const total_names: any = await getNamesOfThoseWhoLikedTheArticleByBlogId(id);
-  const total_comments: any = await getAllCommentsOnArticleByBlogId(id);
+async function LikesSection({ id }: { id: number }) {
+  const total_names = await getNamesOfThoseWhoLikedTheArticleByBlogId(id);
+  const total_comments = await getAllCommentsOnArticleByBlogId(id);
 
   const sessionData = await getSession();
 
-  let email : any;
+  let email: string;
   if (sessionData) {
     email = sessionData.user.email;
   }
 
-  const userIsLiked = total_names.find((user: any) => user.email === email);
+  const userIsLiked = Boolean(
+    total_names.find(
+      (user: { name: string; email: string }) => user.email === email
+    )
+  );
   return (
     <div className="flex ">
       <span className="py-1 text-xs font-regular text-gray-900 mr-1 flex flex-row items-center">
         <HeartButton
           userIsLiked={userIsLiked}
-          total_names={total_names}
+          total_names={total_names.map((user: { name: string }) => user.name)}
           articleId={id}
+          isAuthenticated={Boolean(sessionData)}
         />
       </span>
       <span className="py-1 text-xs font-regular text-gray-900 mr-1 flex flex-row items-center">

@@ -21,7 +21,7 @@ function PostCommentButton() {
 function CommentForm() {
   // const blogId = 1;
   // const [formState, formAction] = useActionState(addCommentAction, null);
-  const [, formAction] = useActionState(addCommentAction, null);
+  const [, formAction] = useActionState(addCommentAction, {});
 
   return (
     <form className="mb-6" action={formAction}>
