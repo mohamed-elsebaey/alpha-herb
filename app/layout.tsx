@@ -13,6 +13,7 @@ import { getSession } from "@/lib/lib";
 import { getUserDataFromDB } from "@/db/db";
 
 import "./globals.css";
+import Script from "next/script";
 
 const open_Sans = Open_Sans({ subsets: ["latin"] });
 
@@ -73,6 +74,24 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-8WPDRRY2MD"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-8WPDRRY2MD', {
+              page_path: window.location.pathname,
+              anonymize_ip: true,
+              cookie_flags: 'SameSite=None;Secure'
+            });
+          `}
+        </Script>
+      </head>
       <body className={`${open_Sans.className} mx-auto max-w-[1800px]`}>
         <Header userRole={userRole} profilePath={profilePath} />
 
