@@ -5,6 +5,8 @@ import OutsideClickHandler from "react-outside-click-handler";
 import Link from "next/link";
 import { logOutAction } from "@/actions/logOutAction";
 
+import defaultProfilePicture from "@/public/profile-pictures/profile.png";
+
 import { AdminIcon } from "./icons/AdminIcon";
 import { ProfileIcon } from "./icons/ProfileIcon";
 import { SettingsIcon } from "./icons/SettingsIcon";
@@ -37,11 +39,12 @@ const Avatar = ({
             onClick={() => setIsOpen(!isOpen)}
           >
             <Image
-              className="object-cover w-10 h-10 rounded-full"
-              src={profilePath ? profilePath : "/profile-pictures/profile.png"}
+              className="object-cover w-10 h-10 rounded-full ring-1 ring-gray-200 hover:ring-primary transition-all duration-300"
+              src={profilePath || defaultProfilePicture}
               alt="avatar"
               width={40}
               height={40}
+              priority
             />
             <span
               className={`duration-100 transform ${
