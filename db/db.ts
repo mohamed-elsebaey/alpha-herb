@@ -13,10 +13,12 @@ const pool = mysql.createPool({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
   waitForConnections: true,
-  connectionLimit: 10,
-  maxIdle: 10,
-  idleTimeout: 60000,
+  connectionLimit: 5,
+  maxIdle: 5,
+  idleTimeout: 30000,
   queueLimit: 0,
+  enableKeepAlive: true,
+  keepAliveInitialDelay: 0
 });
 
 /**
@@ -215,17 +217,28 @@ export async function updateUserProfileData(
 // ****************************************  Blogs Data ****************************************
 
 export async function getAllBlogs() {
-  const blogs = await executeQuery<Blog>("SELECT * FROM blogs");
+  const blogs = await executeQuery<Blog>(
+    `SELECT 
+    b.id, b.title, b.description, b.image_path, b.created_at, b.updated_at,
+    c.category_name_en, 
+    p.name AS product_name, 
+    a.name AS author_name, a.id AS author_id, a.profilePath AS author_profile_path
+    FROM blogs b
+    JOIN users a ON b.author_id = a.id
+    JOIN categories c ON b.category_id = c.id
+    JOIN products p ON b.product_id = p.id`
+  );
   return blogs;
 }
 
-export async function getAuthorDataById(id: number) {
-  const authorData = await executeQuery<{ name: string; profilePath: string }>(
-    "SELECT name,profilePath FROM users WHERE id = ?",
-    [id]
-  );
-  return authorData;
-}
+// ****************************************  Get Author Data By Id ****************************************
+// export async function getAuthorDataById(id: number) {
+//   const authorData = await executeQuery<{ name: string; profilePath: string }>(
+//     "SELECT name,profilePath FROM users WHERE id = ?",
+//     [id]
+//   );
+//   return authorData;
+// }
 
 export async function getNamesOfThoseWhoLikedTheArticleByBlogId(id: number) {
   const namesOfThoseWhoLikedTheArticle = await executeQuery<{
@@ -332,13 +345,13 @@ export async function insertMedicinalPlantsActionToPlantsTable(
 }
 
 export async function selectDataFromMedicinalPlantsTable(id?: number) {
+  const query = id
+    ? "SELECT * FROM medicinal_plants WHERE engineer_id = ? AND CAST(created_at AS DATE) = CAST(CURRENT_TIMESTAMP AS DATE)"
+    : "SELECT * FROM medicinal_plants";
+    
   const MedicinalPlantsTable = await executeQuery<MedicinalPlantData>(
-    `SELECT * FROM medicinal_plants 
-     ${
-       id
-         ? `WHERE engineer_id = ${id} AND CAST(created_at AS DATE) = CAST(CURRENT_TIMESTAMP AS DATE)`
-         : ""
-     }`
+    query,
+    id ? [id] : undefined
   );
   return MedicinalPlantsTable;
 }

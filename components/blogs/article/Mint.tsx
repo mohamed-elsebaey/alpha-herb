@@ -3,7 +3,7 @@ import React from "react";
 
 function Mint() {
   return (
-    <>
+    <div>
       <h1 className="text-3xl font-bold text-center mb-8">
         Mint: Nature&apos;s Refreshing Remedy for Digestion and More
       </h1>
@@ -22,8 +22,31 @@ function Mint() {
         to boosting mood, this versatile herb can enhance your overall
         well-being. Mint, scientifically known as Mentha, is a fragrant herb
         that has been used for centuries in traditional medicine and culinary
-        practices worldwide.
+        practices worldwide. With over 20 species and numerous hybrids, mint offers
+        a diverse range of flavors and therapeutic properties.
       </p>
+
+      <div className="bg-green-50 p-6 rounded-lg mb-8">
+        <h2 className="text-2xl font-bold mb-4">Quick Facts About Mint</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="bg-white p-4 rounded-lg shadow">
+            <h3 className="font-bold text-green-700">Origin</h3>
+            <p>Native to Europe and Asia, now cultivated worldwide</p>
+          </div>
+          <div className="bg-white p-4 rounded-lg shadow">
+            <h3 className="font-bold text-green-700">Active Compounds</h3>
+            <p>Menthol, rosmarinic acid, and flavonoids</p>
+          </div>
+          <div className="bg-white p-4 rounded-lg shadow">
+            <h3 className="font-bold text-green-700">Growing Season</h3>
+            <p>Spring to late summer</p>
+          </div>
+          <div className="bg-white p-4 rounded-lg shadow">
+            <h3 className="font-bold text-green-700">Common Types</h3>
+            <p>Peppermint, Spearmint, Apple Mint, Chocolate Mint</p>
+          </div>
+        </div>
+      </div>
 
       <h2 className="text-2xl font-bold mb-4">Health Benefits of Mint</h2>
       <p className="text-lg text-gray-700 mb-8">
@@ -58,6 +81,33 @@ function Mint() {
           can help freshen breath and promote oral hygiene.
         </li>
       </ul>
+
+      <div className="bg-gray-50 p-6 rounded-lg my-8">
+        <h2 className="text-2xl font-bold mb-4">Growing Your Own Mint</h2>
+        <p className="text-lg text-gray-700 mb-4">
+          Mint is one of the easiest herbs to grow at home. Here&apos;s what you need to know:
+        </p>
+        <ul className="list-disc list-inside space-y-2">
+          <li><strong>Location:</strong> Partial shade to full sun</li>
+          <li><strong>Soil:</strong> Rich, well-draining soil with pH 6.0-7.0</li>
+          <li><strong>Water:</strong> Keep soil consistently moist</li>
+          <li><strong>Container:</strong> Recommended to prevent spreading</li>
+          <li><strong>Harvesting:</strong> Pick leaves as needed, morning is best</li>
+        </ul>
+      </div>
+
+      <div className="bg-yellow-50 p-6 rounded-lg my-8">
+        <h2 className="text-2xl font-bold mb-4">Precautions and Side Effects</h2>
+        <p className="text-lg text-gray-700 mb-4">
+          While mint is generally safe, be aware of these potential concerns:
+        </p>
+        <ul className="list-disc list-inside space-y-2">
+          <li>May worsen acid reflux in some people</li>
+          <li>Can interact with certain medications</li>
+          <li>May affect blood sugar levels</li>
+          <li>Should be used with caution during pregnancy</li>
+        </ul>
+      </div>
 
       <div className="flex justify-center my-16 gap-10 flex-wrap">
         <Image
@@ -150,7 +200,7 @@ function Mint() {
         **Note:** Consult with a healthcare professional before using mint if
         you are pregnant, breastfeeding, or taking any medications.
       </p>
-    </>
+    </div>
   );
 }
 

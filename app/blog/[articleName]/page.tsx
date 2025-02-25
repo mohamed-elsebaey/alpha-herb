@@ -4,20 +4,20 @@ import React from "react";
 
 interface BlogPostPageProps {
   params: Promise<{
-    slug: string;
+    articleName: string;
   }>;
 }
 
 export async function generateMetadata(props: BlogPostPageProps) {
   const params = await props.params;
   return {
-    title: params.slug,
+    title: params.articleName,
     description:
-      params.slug == "mint-natures-refreshing-remedy-for-digestion-and-more"
+      params.articleName == "mint-natures-refreshing-remedy-for-digestion-and-more"
         ? "Explore the world of mint, its benefits, and how to use it."
         : "Explore the world of medicinal and aromatic plants...",
     alternates: {
-      canonical: `https://www.alpha-herbs.com/blog/${params.slug}`,
+      canonical: `https://www.alpha-herbs.com/blog/${params.articleName}`,
     },
   };
 }
@@ -28,13 +28,13 @@ async function BlogPostPage(props: BlogPostPageProps) {
   let data = (
     <>
       <h1 className="font-bold text-6xl text-primary my-5">
-        Blog Section | {params.slug.split("-")[0].toUpperCase()}
+        {params.articleName ? `Blog Section | ${params.articleName.split("-")[0].toUpperCase()}` : "Blog Section"}
       </h1>
       <h2 className="font-semibold text-3xl text-primary2 my-5">Soon ...</h2>
     </>
   );
 
-  if (params.slug == "mint-natures-refreshing-remedy-for-digestion-and-more") {
+    if (params.articleName == "mint-natures-refreshing-remedy-for-digestion-and-more") {
     data = <Mint />;
     articleId = 1;
   }
@@ -45,7 +45,7 @@ async function BlogPostPage(props: BlogPostPageProps) {
         <div className="py-4 px-4 md:px-10 max-w-screen-xl mx-auto">
           <div
             className={`flex flex-col justify-center text-primary ${
-              params.slug !==
+              params.articleName !==
               "mint-natures-refreshing-remedy-for-digestion-and-more"
                 ? "text-center"
                 : ""

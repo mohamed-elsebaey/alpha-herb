@@ -5,7 +5,7 @@ import AuthorSection from "./card/AuthorSection";
 import LikesSection from "./card/LikesSection";
 
 async function Blogs() {
-  let blogs;
+  let blogs: Blog[] | undefined;
   try {
     blogs = await getAllBlogs();
   } catch (error) {
@@ -59,7 +59,7 @@ async function Blogs() {
                   <Image
                     width={500}
                     height={500}
-                    src={`/images/medicinal-plants/${blog["image-path"]}`}
+                    src={`/images/medicinal-plants/${blog["image_path"]}`}
                     alt="card-image"
                     loading="lazy"
                   />
@@ -88,13 +88,13 @@ async function Blogs() {
 
                 <div className="flex items-center justify-between p-4">
                   <div className="flex items-center">
-                    <AuthorSection id={blog.author_id} />
+                    <AuthorSection profilePath={blog.author_profile_path} />
                     <div className="flex flex-col ml-3 text-sm">
                       <span className="text-slate-800 font-semibold">
-                        {blog.author}
+                        {blog.author_name}
                       </span>
                       <span className="text-slate-600">
-                        {blog.date.toLocaleDateString("en-US", {
+                        {blog.created_at.toLocaleDateString("en-US", {
                           month: "short",
                           day: "numeric",
                           year: "numeric",

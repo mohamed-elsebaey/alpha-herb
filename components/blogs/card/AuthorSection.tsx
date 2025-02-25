@@ -1,18 +1,16 @@
-import { getAuthorDataById } from "@/db/db";
 import Image from "next/image";
+import defaultProfilePicture from "@/public/profile-pictures/profile.png";
 
-async function AuthorSection({ id }: { id: number }) {
-  const authorData = await getAuthorDataById(id);
-  // const authorName = authorData[0].name;
-  const authorProfilePath = authorData[0].profilePath;
+async function AuthorSection({ profilePath }: { profilePath: string }) {
+
   return (
-    <div className="rounded-full h-8 w-8 overflow-hidden">
+    <div className="rounded-full h-8 w-8 overflow-hidden border border-gray-200">
       <Image
         width={120}
         height={120}
         alt="Alpha"
-        src={authorProfilePath}
-        className="relative inline-block"
+        src={profilePath || defaultProfilePicture}
+        className="w-full h-full object-cover"
         loading="lazy"
       />
     </div>
