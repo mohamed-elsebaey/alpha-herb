@@ -18,11 +18,12 @@ const Video = () => {
         <div className="relative z-20 h-[300px] overflow-hidden rounded-lg md:h-[450px]">
           <Image
             src="/hero.png"
-            alt="image"
-            layout="fill"
-            objectFit="cover"
+            alt="Hero image"
+            fill
+            className="object-cover object-center"
             priority
           />
+
           <div className="absolute left-0 top-0 z-10 flex h-full w-full items-center justify-center bg-primary bg-opacity-60 ">
             <button
               className="absolute z-20 flex h-20 w-20 items-center justify-center rounded-full bg-white text-primary md:h-[100px] md:w-[100px]"
