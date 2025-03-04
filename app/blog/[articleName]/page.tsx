@@ -8,33 +8,40 @@ interface BlogPostPageProps {
   }>;
 }
 
-export async function generateMetadata(props: BlogPostPageProps) {
-  const params = await props.params;
+export async function generateMetadata({ params }: BlogPostPageProps) {
+  let articleName = (await params).articleName;
+  articleName = decodeURIComponent(articleName);
   return {
-    title: params.articleName,
+    title: articleName,
     description:
-      params.articleName == "mint-natures-refreshing-remedy-for-digestion-and-more"
+      articleName == "Mint: Nature's Refreshing Remedy for Digestion and More"
         ? "Explore the world of mint, its benefits, and how to use it."
         : "Explore the world of medicinal and aromatic plants...",
     alternates: {
-      canonical: `https://www.alpha-herbs.com/blog/${params.articleName}`,
+      canonical: `https://www.alpha-herbs.com/blog/${articleName}`,
     },
   };
 }
 
-async function BlogPostPage(props: BlogPostPageProps) {
-  const params = await props.params;
+async function BlogPostPage({ params }: BlogPostPageProps) {
+  let articleName = (await params).articleName;
+  articleName = decodeURIComponent(articleName);
   let articleId = 0;
   let data = (
     <>
       <h1 className="font-bold text-6xl text-primary my-5">
-        {params.articleName ? `Blog Section | ${params.articleName.split("-")[0].toUpperCase()}` : "Blog Section"}
+        {articleName
+          ? `Blog Section | ${articleName}`
+          : "Blog Section"}
       </h1>
       <h2 className="font-semibold text-3xl text-primary2 my-5">Soon ...</h2>
     </>
   );
 
-    if (params.articleName == "mint-natures-refreshing-remedy-for-digestion-and-more") {
+  if (
+    articleName ==
+    "Mint: Nature's Refreshing Remedy for Digestion and More"
+  ) {
     data = <Mint />;
     articleId = 1;
   }
@@ -45,8 +52,8 @@ async function BlogPostPage(props: BlogPostPageProps) {
         <div className="py-4 px-4 md:px-10 max-w-screen-xl mx-auto">
           <div
             className={`flex flex-col justify-center text-primary ${
-              params.articleName !==
-              "mint-natures-refreshing-remedy-for-digestion-and-more"
+              articleName !==
+              "Mint: Nature's Refreshing Remedy for Digestion and More"
                 ? "text-center"
                 : ""
             }`}

@@ -56,27 +56,29 @@ async function Blogs() {
                 key={blog.id}
               >
                 <div className="relative h-56 m-2.5 overflow-hidden text-white rounded-md">
-                  <Image
-                    width={500}
-                    height={500}
-                    src={`/images/medicinal-plants/${blog["image_path"]}`}
-                    alt="card-image"
-                    loading="lazy"
-                  />
+                  {blog.id == 1 ? (
+                    <Image
+                      width={500}
+                      height={500}
+                      src={`/images/medicinal-plants/${blog["image_path"]}`}
+                      alt="card-image"
+                      priority
+                    />
+                  ) : (
+                    <Image
+                      width={500}
+                      height={500}
+                      src={`/images/medicinal-plants/${blog["image_path"]}`}
+                      alt="card-image"
+                      loading="lazy"
+                    />
+                  )}
                 </div>
                 <div className="p-4">
                   <div className="mb-4 rounded-full bg-cyan-600 py-0.5 px-2.5 border border-transparent text-xs text-white transition-all shadow-sm w-20 text-center">
                     POPULAR
                   </div>
-                  <Link
-                    href={`/blog/${blog.title
-                      .toLowerCase()
-                      .replace(/[^\w\s-]/g, "")
-                      .replace(/\s+/g, "-")
-                      .replace(/--+/g, "-")
-                      .replace(/^-+/, "")
-                      .replace(/-+$/, "")}`}
-                  >
+                  <Link href={`/blog/${blog.title}`}>
                     <h6 className="mb-2 text-slate-800 text-xl font-semibold">
                       {blog.title}
                     </h6>
