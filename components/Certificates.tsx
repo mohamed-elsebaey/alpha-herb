@@ -28,13 +28,34 @@ function Certificates() {
           <div className="w-full max-w-full py-6 lg:w-2/3 lg:flex-none lg:px-8 lg:py-0">
             <div className="flex flex-wrap justify-around items-center">
               <div className="w-36">
-                <Image src={ORGANIC.src} alt="" className="" width={350} height={350} />
+                <Image
+                  src={ORGANIC.src}
+                  alt=""
+                  className=""
+                  width={350}
+                  height={350}
+                  loading="lazy"
+                />
               </div>
               <div className="w-24">
-                <Image src={ISO9001.src} alt="" className="" width={350} height={350} />
+                <Image
+                  src={ISO9001.src}
+                  alt=""
+                  className=""
+                  width={350}
+                  height={350}
+                  loading="lazy"
+                />
               </div>
               <div className="w-36">
-                <Image src={ISO22000.src} alt="" className="" width={350} height={350} />
+                <Image
+                  src={ISO22000.src}
+                  alt=""
+                  className=""
+                  width={350}
+                  height={350}
+                  loading="lazy"
+                />
               </div>
             </div>
           </div>

@@ -5,7 +5,7 @@ import Image from "next/image";
 // import { motion } from "framer-motion";
 
 const Video = () => {
-  const [videoOpen, ] = useState(false);
+  const [videoOpen] = useState(false);
   // const videoSrc = "https://www.youtube.com/embed/LXb3EKWsInQ?autoplay=1";
 
   const onHandlePlay = () => {
@@ -16,7 +16,13 @@ const Video = () => {
     <section className="bg-white py-20 lg:py-[120px] ">
       <div className="py-4 px-4 md:px-10 max-w-screen-xl mx-auto">
         <div className="relative z-20 h-[300px] overflow-hidden rounded-lg md:h-[450px]">
-          <Image src="/hero.webp" alt="image" layout="fill" objectFit="cover"/>
+          <Image
+            src="/hero.png"
+            alt="image"
+            layout="fill"
+            objectFit="cover"
+            priority
+          />
           <div className="absolute left-0 top-0 z-10 flex h-full w-full items-center justify-center bg-primary bg-opacity-60 ">
             <button
               className="absolute z-20 flex h-20 w-20 items-center justify-center rounded-full bg-white text-primary md:h-[100px] md:w-[100px]"

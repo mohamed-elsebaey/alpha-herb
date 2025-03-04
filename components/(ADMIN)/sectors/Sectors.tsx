@@ -5,7 +5,7 @@ import Link from "next/link";
 const sectorsData = [
   {
     id: 1,
-    img: "https://img1.wsimg.com/isteam/stock/14366/:/rs=w:1920,m",
+    img: "/hero.png",
     name: "قسم النباتات الطبية والعطرية",
     description: "",
     role: ["CEO", "DEV"],
