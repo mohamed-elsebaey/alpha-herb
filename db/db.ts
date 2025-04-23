@@ -18,7 +18,7 @@ const pool = mysql.createPool({
   idleTimeout: 30000,
   queueLimit: 0,
   enableKeepAlive: true,
-  keepAliveInitialDelay: 0
+  keepAliveInitialDelay: 0,
 });
 
 /**
@@ -68,12 +68,16 @@ export async function userCredentials(
 
   // Update user's name and image if they have changed
   if (user && (user.name !== name || user.profilePath !== image)) {
+    // await executeQuery(
+    //   "UPDATE users SET name = ?, profilePath = ?, latest_update = CURRENT_TIMESTAMP WHERE email = ?",
+    //   [name, image, email]
+    // );
     await executeQuery(
-      "UPDATE users SET name = ?, profilePath = ?, latest_update = CURRENT_TIMESTAMP WHERE email = ?",
-      [name, image, email]
+      "UPDATE users SET name = ?, latest_update = CURRENT_TIMESTAMP WHERE email = ?",
+      [name, email]
     );
     user.name = name ?? null;
-    user.profilePath = image ?? null;
+    // user.profilePath = image ?? null;
     return { user };
   }
 
@@ -231,6 +235,16 @@ export async function getAllBlogs() {
   return blogs;
 }
 
+// ********************************************************************************************************
+export async function getArticleDateByArticleTitle(articleTitle: string) {
+  const articleData = await executeQuery<Blog>(
+    "SELECT * FROM blogs WHERE title = ?",
+    [articleTitle]
+  );
+  return articleData[0];
+}
+// ********************************************************************************************************
+
 // ****************************************  Get Author Data By Id ****************************************
 // export async function getAuthorDataById(id: number) {
 //   const authorData = await executeQuery<{ name: string; profilePath: string }>(
@@ -348,10 +362,11 @@ export async function selectDataFromMedicinalPlantsTable(id?: number) {
   const query = id
     ? "SELECT * FROM medicinal_plants WHERE engineer_id = ? AND CAST(created_at AS DATE) = CAST(CURRENT_TIMESTAMP AS DATE)"
     : "SELECT * FROM medicinal_plants";
-    
+
   const MedicinalPlantsTable = await executeQuery<MedicinalPlantData>(
     query,
     id ? [id] : undefined
   );
   return MedicinalPlantsTable;
 }
+

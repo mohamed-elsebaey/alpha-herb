@@ -18,13 +18,14 @@ function PostCommentButton() {
   );
 }
 
-function CommentForm() {
+function CommentForm({ blogId }: { blogId: number }) {
   // const blogId = 1;
   // const [formState, formAction] = useActionState(addCommentAction, null);
   const [, formAction] = useActionState(addCommentAction, {});
 
   return (
     <form className="mb-6" action={formAction}>
+      <input type="hidden" name="blogId" value={blogId} readOnly/>
       <div className="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border">
         <label htmlFor="comment" className="sr-only">
           Your comment

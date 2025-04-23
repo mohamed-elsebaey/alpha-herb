@@ -10,19 +10,19 @@ export async function addCommentAction(
   formData: FormData
 ) {
   const comment = formData.get("comment")?.toString() || "";
+  const articleId = Number(formData.get("blogId")) || 0;
 
   const sessionData = await getSession();
 
   if (!sessionData) {
-    redirect('/sign-in')
+    redirect("/sign-in");
   }
 
   const userId = sessionData.user.id;
 
-  addUserCommentToArticleByUserIdArticleId(userId,1,comment)
+  addUserCommentToArticleByUserIdArticleId(userId, articleId, comment);
 
   revalidatePath("/blog");
 
-  return { };
-
+  return {};
 }

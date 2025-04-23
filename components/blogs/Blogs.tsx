@@ -3,11 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 import AuthorSection from "./card/AuthorSection";
 import LikesSection from "./card/LikesSection";
+import { cache } from "react";
+
+const blogs_cache = cache(getAllBlogs);
 
 async function Blogs() {
   let blogs: Blog[] | undefined;
   try {
-    blogs = await getAllBlogs();
+    blogs = await blogs_cache();
   } catch (error) {
     console.error(error);
     return (
@@ -82,7 +85,7 @@ async function Blogs() {
                     <h6 className="mb-2 text-slate-800 text-xl font-semibold">
                       {blog.title}
                     </h6>
-                    <p className="text-slate-600 leading-normal font-light">
+                    <p className="text-slate-600 leading-normal font-light line-clamp-3">
                       {blog.description}
                     </p>
                   </Link>

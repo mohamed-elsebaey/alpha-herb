@@ -17,7 +17,7 @@ async function CommentsSection({ articleId }: { articleId: number }) {
               Discussion ({allCommentsData.length})
             </h2>
           </div>
-          <CommentForm />
+          <CommentForm blogId={articleId}/>
           {/* Users Comments Start */}
           {allCommentsData
             .sort((a, b) => b.created_at.getTime() - a.created_at.getTime())
