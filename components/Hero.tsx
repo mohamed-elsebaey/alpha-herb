@@ -1,10 +1,7 @@
 import Link from "next/link";
+import heroImage from "@/public/hero.png";
 
-const videosNames = [
-  "1",
-  "2",
-  "3",
-];
+const videosNames = ["1", "2", "3"];
 
 const randomVideo = videosNames[Math.floor(Math.random() * 3)];
 
@@ -31,19 +28,55 @@ function Hero() {
           </Link>
         </div>
         <div className="w-full lg:w-6/12 flex justify-center">
-          <div className="relative z-10 inline-block pt-11 lg:pt-0 w-full bg-white shadow-lg rounded-lg rounded-tl-[80px] overflow-hidden">
+          <div className="relative z-10 inline-block pt-11 lg:pt-0 w-full h-[400px]">
             <video
               src={`https://res.cloudinary.com/dyryptpqq/video/upload/v1/Alphaherb-videos/${randomVideo}`}
-              className="w-full aspect-video"
+              className="shadow-lg rounded-lg rounded-tl-[80px] w-full h-full object-cover"
+              poster={heroImage.src}
               autoPlay
               loop
               muted
               playsInline
               controls={false}
-              title="Hero Video"
+              // title="Hero Video"
             >
               Your browser does not support the video tag.
             </video>
+            <span className="absolute -bottom-8 -left-8 z-[-1] hidden lg:block">
+              <svg
+                width="93"
+                height="93"
+                viewBox="0 0 93 93"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="2.5" cy="2.5" r="2.5" fill="#115934" />
+                <circle cx="2.5" cy="24.5" r="2.5" fill="#115934" />
+                <circle cx="2.5" cy="46.5" r="2.5" fill="#115934" />
+                <circle cx="2.5" cy="68.5" r="2.5" fill="#115934" />
+                <circle cx="2.5" cy="90.5" r="2.5" fill="#115934" />
+                <circle cx="24.5" cy="2.5" r="2.5" fill="#115934" />
+                <circle cx="24.5" cy="24.5" r="2.5" fill="#115934" />
+                <circle cx="24.5" cy="46.5" r="2.5" fill="#115934" />
+                <circle cx="24.5" cy="68.5" r="2.5" fill="#115934" />
+                <circle cx="24.5" cy="90.5" r="2.5" fill="#115934" />
+                <circle cx="46.5" cy="2.5" r="2.5" fill="#115934" />
+                <circle cx="46.5" cy="24.5" r="2.5" fill="#115934" />
+                <circle cx="46.5" cy="46.5" r="2.5" fill="#115934" />
+                <circle cx="46.5" cy="68.5" r="2.5" fill="#115934" />
+                <circle cx="46.5" cy="90.5" r="2.5" fill="#115934" />
+                <circle cx="68.5" cy="2.5" r="2.5" fill="#115934" />
+                <circle cx="68.5" cy="24.5" r="2.5" fill="#115934" />
+                <circle cx="68.5" cy="46.5" r="2.5" fill="#115934" />
+                <circle cx="68.5" cy="68.5" r="2.5" fill="#115934" />
+                <circle cx="68.5" cy="90.5" r="2.5" fill="#115934" />
+                <circle cx="90.5" cy="2.5" r="2.5" fill="#115934" />
+                <circle cx="90.5" cy="24.5" r="2.5" fill="#115934" />
+                <circle cx="90.5" cy="46.5" r="2.5" fill="#115934" />
+                <circle cx="90.5" cy="68.5" r="2.5" fill="#115934" />
+                <circle cx="90.5" cy="90.5" r="2.5" fill="#115934" />
+              </svg>
+            </span>
           </div>
         </div>
       </div>
