@@ -3,7 +3,8 @@ import heroImage from "@/public/hero.png";
 
 const videosNames = ["1", "2", "3"];
 
-const randomVideo = videosNames[Math.floor(Math.random() * 3)];
+// const randomVideo = videosNames[Math.floor(Math.random() * 3)];
+const randomVideo = videosNames[0];
 
 function Hero() {
   return (
