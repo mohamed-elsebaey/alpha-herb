@@ -54,7 +54,7 @@ function ContactUs() {
                 <h4 className="mb-1 text-xl font-bold text-dark ">
                   Email Address
                 </h4>
-                <p className="text-base  ">info@alpha-herbs.com</p>
+                <p className="text-base  ">info@alphaherb.net</p>
               </div>
             </div>
           </div>

@@ -39,13 +39,13 @@ export const metadata: Metadata = {
     "زراعة مستدامة"
   ],
   alternates: {
-    canonical: "https://www.alpha-herbs.com/products",
+    canonical: "https://www.alphaherb.net/products",
   },
   openGraph: {
     title: "Premium Organic Herbs & Spices | Alpha Herb",
     description: "Explore our collection of premium organic herbs, spices, and botanical products. Sustainably sourced and carefully processed for maximum quality.",
     type: "website",
-    url: "https://www.alpha-herbs.com/products",
+    url: "https://www.alphaherb.net/products",
     siteName: "Alpha Herb",
   },
 };

@@ -21,7 +21,7 @@ const DEFAULT_PROFILE_IMAGE =
   "https://res.cloudinary.com/dyriptpqq/image/upload/v1729810401/AlphaHerbs-Images/usersProfileImages/alpha-herbs.png";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.alpha-herbs.com/"),
+  metadataBase: new URL("https://www.alphaherb.net/"),
   title: {
     default: "Alpha Herb - Premium Medicinal & Aromatic Herbs Supplier",
     template: `%s | Alpha Herb - Premium Herbs`,
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     title: "Alpha Herb - Premium Medicinal & Aromatic Herbs Supplier",
     description:
       "Discover the healing power of nature with Alpha Herb. Leading supplier of bulk medicinal and aromatic herbs for functional food, herbal medicine, and cosmetics industries.",
-    url: "https://www.alpha-herbs.com",
+    url: "https://www.alphaherb.net",
     siteName: "Alpha Herb",
     images: [
       {

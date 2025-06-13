@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   description:
     "Have questions about the world of herbs? Our Alpha Herb FAQ page is the perfect place to find the answers you're looking for. Discover the benefits of herbs, learn about our products, and get clear, comprehensive answers to all your inquiries. Search now!",
   alternates: {
-    canonical: "https://www.alpha-herbs.com/faq",
+    canonical: "https://www.alphaherb.net/faq",
   },
   openGraph: {
     title: "Frequently Asked Questions | Alpha Herbs",
     description:
       "Find answers to common questions about herbs, their benefits, and our products at Alpha Herbs.",
-    url: "https://www.alpha-herbs.com/faq",
+    url: "https://www.alphaherb.net/faq",
     type: "website",
   },
   twitter: {

@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     "مستخلصات عشبية",
   ],
   alternates: {
-    canonical: "https://www.alpha-herbs.com/blog",
+    canonical: "https://www.alphaherb.net/blog",
   },
 };
 

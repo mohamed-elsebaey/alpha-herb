@@ -1,5 +1,5 @@
 export default async function sitemap() {
-  const baseUrl = "https://www.alpha-herbs.com";
+  const baseUrl = "https://www.alphaherb.net";
 
   // Get dynamic product categories
   const categories = ["herbs", "flowers", "seeds"]; 

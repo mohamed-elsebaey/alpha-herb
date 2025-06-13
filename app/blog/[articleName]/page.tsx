@@ -28,7 +28,7 @@ export async function generateMetadata({
       ? articleData.description
       : "Explore the world of medicinal and aromatic plants...",
     alternates: {
-      canonical: `https://www.alpha-herbs.com/blog/${articleName}`,
+      canonical: `https://www.alphaherb.net/blog/${articleName}`,
     },
   };
 }

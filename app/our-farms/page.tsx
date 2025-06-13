@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     "Local Produce"
   ],
   alternates: {
-    canonical: "https://www.alpha-herbs.com/our-farms",
+    canonical: "https://www.alphaherb.net/our-farms",
   },
 };
 

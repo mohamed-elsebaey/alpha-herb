@@ -21,7 +21,7 @@ export async function generateMetadata(props: BlogPostPageProps) {
     openGraph: {
       title,
       description,
-      url: `https://www.alpha-herbs.com/products/${params.category}`,
+      url: `https://www.alphaherb.net/products/${params.category}`,
       type: 'website',
       siteName: 'Alpha Herb',
     },
@@ -31,7 +31,7 @@ export async function generateMetadata(props: BlogPostPageProps) {
       description,
     },
     alternates: {
-      canonical: `https://www.alpha-herbs.com/products/${params.category}`,
+      canonical: `https://www.alphaherb.net/products/${params.category}`,
     },
   };
 }

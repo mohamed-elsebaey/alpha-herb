@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "Alpha Herb - Premium Medicinal & Aromatic Herbs Supplier",
   description: "Build your natural products with Alpha Herb. Leading supplier of bulk medicinal and aromatic herbs, providing customized solutions for functional food producers, herbal medicine manufacturers, and cosmetics companies. Premium quality guaranteed.",
   alternates: {
-    canonical: "https://www.alpha-herbs.com",
+    canonical: "https://www.alphaherb.net",
   },
 };
 

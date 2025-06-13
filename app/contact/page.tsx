@@ -21,12 +21,12 @@ export const metadata: Metadata = {
     "منتجات طبيعية",
   ],
   alternates: {
-    canonical: "https://www.alpha-herbs.com/contact",
+    canonical: "https://www.alphaherb.net/contact",
   },
   openGraph: {
     title: "Contact Us - Alpha Herb ",
     description: "Contact Alpha Herb for premium herbal products and expert guidance ",
-    url: "https://www.alpha-herbs.com/contact",
+    url: "https://www.alphaherb.net/contact",
     siteName: "Alpha Herb",
     locale: "en_US",
     alternateLocale: ["ar_SA"],

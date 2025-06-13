@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     "Join the vibrant Alpha Herb community and explore the world of natural herbs. Share your knowledge with our community, learn from our experts, and discover new recipes daily. Sign up now and start your journey with us!",
   alternates: {
-    canonical: "https://www.alpha-herbs.com/sign-up",
+    canonical: "https://www.alphaherb.net/sign-up",
   },
 };
 
